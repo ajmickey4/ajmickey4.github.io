@@ -1,0 +1,13 @@
+<div class="header-left">
+    <a class="main-logo" href=""><div class="main-logo"></div></a>
+</div>
+<div class="header-center">
+</div>
+<div class="header-right">
+    <nav>
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if page.url == item.link %}class="current" {% endif %}>{{ item.name }}</a>
+        {% endfor %}
+    </nav>
+
+</div>
