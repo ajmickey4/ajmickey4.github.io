@@ -6,8 +6,10 @@
 <div class="header-right">
     <nav>
         {% for item in site.data.navigation %}
-        <a href="{{ item.link }}" {% if page.url == item.link %}class="current" {% endif %}>{{ item.name }}</a>
+        <div class="indicator-bar">
+            <a href="{{ item.link }}">{{ item.name }}</a>
+            <div {% if page.url == item.link %}class="current" {% endif %}></div>
+        </div>
         {% endfor %}
     </nav>
-
 </div>

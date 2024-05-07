@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets\\css",
+    "\\assets\\images",
+    "\\_data",
+    "\\_includes",
+    "\\_layouts",
+    "\\_sass",
+    "\\_site\\assets",
+    "\\_site\\assets\\css",
+    "\\_site\\assets\\images"
   ],
-  "SelectedNode": "\\C:\\Users\\andre\\Source\\Repos\\ajmickey4\\ajmickey4.github.io",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }
