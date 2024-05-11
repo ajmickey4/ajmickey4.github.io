@@ -1,0 +1,11 @@
+---
+layout: blog-layout
+title: Main Blog
+permalink: /blog/
+---
+{% assign first = site.data.blog-navigation[0] %}
+<a id="redirect-link" style="display:none;" href="{{ first.link }}">{{ first.name }}</a>
+
+<script>
+    document.getElementById("redirect-link").click();
+</script>

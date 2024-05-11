@@ -1,11 +1,6 @@
-<div class="header-left">
-    <a class="main-logo" href=""><div class="main-logo"></div></a>
-</div>
-<div class="header-center">
-</div>
 <div class="header-right">
     <nav>
-        {% for item in site.data.navigation %}
+        {% for item in site.data.blog-navigation %}
         <div class="indicator-bar">
             <a href="{{ item.link }}">{{ item.name }}</a>
             <div {% if page.url == item.link %}class="current" {% endif %}></div>

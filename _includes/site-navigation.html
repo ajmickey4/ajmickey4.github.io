@@ -1,0 +1,17 @@
+<div class="header-left">
+    <a class="main-logo" href="/"><div class="main-logo"></div></a>
+</div>
+<div class="header-center">
+</div>
+<div class="header-right">
+    <nav>
+        {% assign url = page.url | split: "/" %}
+        {% for item in site.data.site-navigation %}
+        <div class="indicator-bar">
+            {% assign sub = item.link | remove: "/" %}
+            <a href="{{ item.link }}">{{ item.name }}</a>
+            <div {% if url[1]==sub %}class="current" {% endif %}{% if url[1] == nil and sub=="" %} class="current" {% endif %}></div>
+        </div>
+        {% endfor %}
+    </nav>
+</div>

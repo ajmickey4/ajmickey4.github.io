@@ -90,8 +90,8 @@ div.main-logo.img {
 .header-right > nav {
     display: inline-flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 15px;
+    flex-wrap: wrap;
+    column-gap: 15px;
     text-align: center;
 }
 
@@ -178,7 +178,7 @@ p {
     line-height: 24px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px) { 
 
     .about-me-body > div.image-holder {
         max-width: 100% !important;
