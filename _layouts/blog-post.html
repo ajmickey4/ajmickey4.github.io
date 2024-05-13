@@ -1,0 +1,40 @@
+---
+layout: blog-layout
+---
+
+{% assign url = page.url | split: "/" %}
+{% assign post_url = url[3] | append: "/" %}
+{% assign url = url | pop | join: "/" | append: "/" %}
+
+{% assign posts = site.data.blog-navigation | where: "link", url %}
+{% assign posts = posts[0].posts %}
+
+{% assign post = posts | where: "link", post_url %}
+{% assign post = post[0] %}
+
+<div class="blog-page">
+    <a class="btn" href="{{url}}">Back</a>
+    <h2 style="blog-title">{{post.title}}</h2> 
+    <p style="blog-date">{{post.directory}}</p>
+    Summary:
+    {% include_relative caption.html %}
+    <div class="cover-image">
+        <img src="{{url}}{{post.directory}}/images/cover.jpg" />
+    </div>
+    <div class="blog-content">
+        {{content}}
+    </div>
+    <div class="blog-footer">
+        {% if post.previous %}
+            <a href="../{{post.previous}}">< prev</a>
+        {% else %}
+            <a href="../">return to list</a>
+        {% endif %}
+
+        {% if post.next %}
+            <a href="../{{post.next}}">next ></a>
+        {% else %}
+            <a href="../">return to list</a>
+        {% endif %}
+    </div>
+</div>

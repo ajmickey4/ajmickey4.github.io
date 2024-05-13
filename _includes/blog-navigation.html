@@ -3,7 +3,7 @@
         {% for item in site.data.blog-navigation %}
         <div class="indicator-bar">
             <a href="{{ item.link }}">{{ item.name }}</a>
-            <div {% if page.url == item.link %}class="current" {% endif %}></div>
+            <div {% if page.url contains item.link %}class="current" {% endif %}></div>
         </div>
         {% endfor %}
     </nav>

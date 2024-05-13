@@ -1,6 +1,16 @@
-- name: Czech Summer 2023
-  link: /blog/cz-2023/
 - name: Czech Summer 2024
-  link: /blog/cz-2024/
+  link: /blog/czech-summer-2024/
+  posts:
+    - title: First Post
+      link: 5-12-24/
+      directory: 5-12-24
+      next: 5-14-24/
+      previous:
+    - title: Preparation
+      link: 5-14-24/
+      directory: 5-14-24
+      next: 
+      previous: 5-12-24/
+  
 - name: Czech Winter 2024
-  link: /blog/cz-2024-w/
+  link: /blog/czech-winter-2024/

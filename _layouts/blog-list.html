@@ -1,0 +1,20 @@
+---
+layout: blog-layout
+---
+
+{% assign posts = site.data.blog-navigation | where: "link", page.permalink %}
+{% assign posts = posts[0].posts %}
+
+<div class="blog-list">
+    {% for post in posts %}
+    {% assign caption = post.directory | append: "/caption.html" %}
+    <div class="blog-list-item">
+        <div class="blog-list-image">
+            <img src="{{page.directory | append: post.directory | append: "/images/cover.jpg"}}" />
+        </div>
+        <h3>{{post.title}}</h3>
+        {% include_relative {{post.directory}}/caption.html %}
+        <a class="btn" href="{{post.link}}">View Here!</a>
+    </div>
+    {% endfor %}
+</div>
