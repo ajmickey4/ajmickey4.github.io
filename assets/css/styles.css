@@ -286,7 +286,7 @@ a {
     }
 
 
-    @media (max-height: 700px) {
+    @media (max-height: 850px) {
         :root {
             --header-height: 75px;
         }
