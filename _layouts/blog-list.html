@@ -8,16 +8,16 @@ layout: blog-layout
 <div class="blog-list">
     {% if posts %}
         {% for post in posts %}
-        {% assign caption = post.directory | append: "/caption.html" %}
-        <div class="blog-list-item">
-            <div class="blog-list-image">
-                <img src="{{page.directory | append: post.directory | append: "/images/cover.jpg"}}" />
+            {% assign caption = post.directory | append: "/caption.html" %}
+            <div class="blog-list-item">
+                <div class="blog-list-image">
+                    <img src="{{page.directory | append: post.directory | append: "/images/cover.jpg"}}" />
+                </div>
+                <h3>{{post.title}}   <span style="font-weight:normal;">{{post.directory}}</span></h3>
+                {% include_relative {{post.directory}}/caption.html %}
+                <a class="btn" href="{{post.link}}">View Here!</a>
             </div>
-            <h3>{{post.title}}</h3>
-            {% include_relative {{post.directory}}/caption.html %}
-            <a class="btn" href="{{post.link}}">View Here!</a>
-        </div>
-    {% endfor %}
+        {% endfor %}
     {% else %}
         <div class="blog-list-item">
             <h3>No posts found</h3>
