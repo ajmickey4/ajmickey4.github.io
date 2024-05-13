@@ -199,7 +199,7 @@ a {
 .blog-list-item {
     padding: 20px;
     border-radius: 20px;
-    background-color: hsl(214deg 20% 77%);
+    background-color: #d0d3d9;
 }
 
     .blog-list-item > a {
