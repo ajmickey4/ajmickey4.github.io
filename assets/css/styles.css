@@ -266,11 +266,64 @@ a {
     
 
 .blog-content {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-@media (max-width: 700px) { 
+.quote {
+    position: relative;
+    padding: 10px 70pt 10pt 0pt;
+}
 
+    .quote p.verse {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+        transform: translateX(35pt);
+    }
+
+    .quote p.reference {
+        font-weight: bold;
+        text-align: right;
+        margin: 0;
+        margin-top: 5px;
+        transform: translateX(35pt);
+    }
+
+    .quote i {
+        color: var(--accent-color);
+        font-size: 35pt;
+        position: absolute;
+    }
+
+    .quote p.open-quote {
+        color: var(--accent-color);
+        font-size: 35pt;
+        margin-right: 0;
+        line-height: 0;
+        margin-bottom: -20px;
+        margin-top: 20px;
+    }
+
+        .quote i.open-quote {
+            top: 0;
+            left: 0;
+        }
+
+.quote i.close-quote {
+    bottom: 0;
+    right: 0;
+}
+
+.image-holder {
+    max-width: 500px;
+    float: left;
+    margin: 0px 20px 0px 0px;
+    text-align: center;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+@media (max-width: 700px) {
     .about-me-body > div.image-holder {
         max-width: 100% !important;
         margin: 0px 0px 20px 0px !important;
@@ -283,6 +336,16 @@ a {
         border-radius: 15px;
         max-height: 150px;
         overflow: hidden;
+    }
+
+    .quote {
+        position: relative;
+    }
+
+    .image-holder {
+        float: none;
+        max-width: none;
+        margin: 0px;
     }
 
 

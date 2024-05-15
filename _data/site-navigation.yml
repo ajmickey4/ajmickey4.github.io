@@ -1,4 +1,7 @@
-- name: About Me
-  link: /
+# ---
+#- name: About Me
+#  link: /
+# ---
+ 
 - name: Blog
   link: /blog/
