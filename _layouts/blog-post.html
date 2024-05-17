@@ -20,6 +20,7 @@ layout: blog-layout
     {% include_relative caption.html %}
     <div class="cover-image">
         <img src="{{url}}{{post.directory}}/images/cover.jpg" />
+        {% include_relative images/cover.jpg.html %}
     </div>
     <div class="blog-content">
         {{content}}
