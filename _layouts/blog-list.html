@@ -10,8 +10,10 @@ layout: blog-layout
         {% for post in posts %}
             {% assign caption = post.directory | append: "/caption.html" %}
             <div class="blog-list-item">
-                <div class="blog-list-image">
-                    <img src="{{page.directory | append: post.directory | append: "/images/cover.jpg"}}" />
+                <div>
+                    <div class="blog-list-image">
+                        <img src="{{page.directory | append: post.directory | append: "/images/cover.jpg"}}" />
+                    </div>
                 </div>
                 <h3>{{post.title}},   <span style="font-weight:normal;">{{post.directory}}</span></h3>
                 {% include_relative {{post.directory}}/caption.html %}

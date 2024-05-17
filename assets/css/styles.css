@@ -210,8 +210,9 @@ a {
 
     .blog-list-item > p {
         margin-bottom: 0px;
+        text-align: justify;
     }
-
+        
     .blog-list-image {
         float: left;
         margin: 0 20px 0px 0;
@@ -353,6 +354,11 @@ a {
         float: none;
         max-width: none;
         margin: 0px;
+    }
+
+    .blog-list-item > div {
+        display: flex;
+        justify-content: center;
     }
 
 
