@@ -39,7 +39,8 @@ body {
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
+    margin-bottom: -25px;
 }
 
 .header-left {
@@ -325,6 +326,12 @@ a {
     font-size: 10pt;
 }
 
+    .image-holder.right-align {
+        float: right;
+        margin-right: 0px;
+        margin-left: 20px;
+    }
+
 .image-caption {
     width: 100%;
     text-align: center;
@@ -333,6 +340,10 @@ a {
 }
 
 @media (max-width: 700px) {
+    .web-header > div {
+        margin-bottom: 0px;
+    }
+
     .about-me-body > div.image-holder {
         max-width: 100% !important;
         margin: 0px 0px 20px 0px !important;
@@ -354,7 +365,7 @@ a {
     .image-holder {
         float: none;
         max-width: none;
-        margin: 0px;
+        margin: 0px !important;
     }
 
     .blog-list-item > div {
@@ -373,4 +384,3 @@ a {
         }
     }
 }
-

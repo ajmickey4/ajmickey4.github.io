@@ -1,16 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\css",
-    "\\assets\\images",
+    "\\blog",
     "\\_data",
     "\\_includes",
     "\\_layouts",
-    "\\_sass",
-    "\\_site\\assets",
-    "\\_site\\assets\\css",
-    "\\_site\\assets\\images"
+    "\\_posts",
+    "\\_sass"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\_config.yml",
   "PreviewInSolutionExplorer": false
 }
