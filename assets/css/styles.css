@@ -317,6 +317,21 @@ a {
     right: 0;
 }
 
+    .quote p.close-quote {
+        float: right;
+        margin-bottom: 20px;
+        margin-top: -20px;
+        margin-right: -100px;
+        color: var(--accent-color);
+        font-size: 35pt;
+    }
+
+.carousel.inline {
+    max-width: 500px;
+    float: left;
+    margin: 10px 20px 10px 0px;
+}
+
 .image-holder {
     max-width: 500px;
     float: left;
@@ -332,11 +347,18 @@ a {
         margin-left: 20px;
     }
 
+.carousel.inline.right-align {
+    float: right;
+    margin-right: 0px;
+    margin-left: 20px;
+}
+
 .image-caption {
     width: 100%;
     text-align: center;
     font-style: italic;
     font-size: 10pt;
+    white-space: normal;
 }
 
 .carousel {
@@ -389,6 +411,31 @@ a {
         user-select: none;
     }
 
+.img-with-caption {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img-with-caption > img {
+    border-radius: 15px;
+    /* object-fit: contain; */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100% - 75px);
+    object-fit: contain;
+    user-select: none;
+}
+
+    .img-with-caption p.image-caption {
+        margin: 0 0 10pt 0;
+    }
+
 
 .carousel-buttons {
     position: absolute;
@@ -412,20 +459,27 @@ a {
         width: 75px;
         z-index: 2;
         user-select: none;
+        transition: 0.25s;
     }
 
         .carousel-buttons > div:hover {
             opacity: 0.8;
+            transform: translateX(0px);
+            transition: 0.25s;
         }
 
-    .carousel-buttons .left {
+    .carousel-buttons .left-button {
+        transform: translateX(-75px);
         background: linear-gradient(90deg, var(--dark-color), transparent);
         padding-left: 10px;
+        padding-right: 75px;
     }
 
-    .carousel-buttons .right {
+    .carousel-buttons .right-button {
+        transform: translateX(75px);
         background: linear-gradient(270deg, var(--dark-color), transparent);
         padding-right: 10px;
+        padding-left: 75px;
         justify-content: flex-end;
     }
 
@@ -437,7 +491,7 @@ a {
     border-radius: 5px;
     transform: translateX(0px);
 
-    transition: transform 0.5s;
+    transition: 0.5s;
 }
  
 
@@ -468,6 +522,13 @@ a {
         float: none;
         max-width: none;
         margin: 0px !important;
+    }
+
+    .carousel.inline {
+        max-width: none;
+        float: none;
+        margin: 0px !important;
+        margin-bottom: 10px !important;
     }
 
     .blog-list-item > div {
