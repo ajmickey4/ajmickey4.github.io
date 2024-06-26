@@ -19,5 +19,10 @@
     - title: Go! Go! Go! Rest... 
       link: 6-19-24/
       directory: 6-19-24
-      next:
+      next: 6-26-24/
       previous: 6-12-24/
+    - title: The Campers are Coming! 
+      link: 6-26-24/
+      directory: 6-26-24
+      next:
+      previous: 6-19-24/
