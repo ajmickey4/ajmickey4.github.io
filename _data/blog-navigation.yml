@@ -24,5 +24,10 @@
     - title: The Campers are Coming! 
       link: 6-26-24/
       directory: 6-26-24
-      next:
+      next: 7-10-24/
       previous: 6-19-24/
+    - title: First Camp DONE!
+      link: 7-10-24/
+      directory: 7-10-24
+      next:
+      previous: 6-26-24/
