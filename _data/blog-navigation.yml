@@ -29,5 +29,10 @@
     - title: First Camp DONE!
       link: 7-10-24/
       directory: 7-10-24
-      next:
+      next: 7-24-24/
       previous: 6-26-24/
+    - title: Second Camp Down!
+      link: 7-24-24/
+      directory: 7-24-24
+      next:
+      previous: 7-10-24/
