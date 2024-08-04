@@ -34,5 +34,10 @@
     - title: Second Camp Down!
       link: 7-24-24/
       directory: 7-24-24
-      next:
+      next: 8-4-24/
       previous: 7-10-24/
+    - title: Final Camp Completed!
+      link: 8-4-24/
+      directory: 8-4-24
+      next:
+      previous: 7-24-24/
