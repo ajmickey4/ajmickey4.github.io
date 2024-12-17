@@ -41,3 +41,12 @@
       directory: 8-4-24
       next:
       previous: 7-24-24/
+
+- name: Czech Winter 2024
+  link: /blog/czech-winter-2024/
+  posts:
+    - title: Tis The Season
+      link: 12-17-24/
+      directory: 12-17-24
+      next: 
+      previous:
