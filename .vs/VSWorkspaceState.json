@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\blog",
-    "\\_data",
+    "\\blog\\czech-summer-2024",
+    "\\blog\\czech-summer-2024\\6-6-24",
+    "\\blog\\czech-summer-2024\\7-10-24",
+    "\\blog\\czech-winter-2024",
+    "\\blog\\czech-winter-2024\\12-17-24",
     "\\_includes",
     "\\_layouts",
-    "\\_posts",
     "\\_sass"
   ],
-  "SelectedNode": "\\_config.yml",
+  "SelectedNode": "\\blog\\czech-winter-2024\\12-17-24\\layout.html",
   "PreviewInSolutionExplorer": false
 }
