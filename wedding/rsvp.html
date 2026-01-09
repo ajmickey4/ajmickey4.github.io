@@ -1,0 +1,19 @@
+---
+layout: wedding-layout
+title: Wedding RSVP
+permalink: /wedding/rsvp
+---
+
+RSVP Coming Soon!
+<span id="rsvp_name"></span>
+
+<script>
+    $(document).ready(function () {
+        // get name from url param
+        const urlParams = new URLSearchParams(window.location.search);
+        let name = urlParams.get("name");
+        if (name) {
+            $("#rsvp_name").html("Welcome " + name);
+        }
+    });
+</script>
