@@ -3,8 +3,92 @@ layout: wedding-layout
 title: Wedding RSVP
 permalink: /wedding/rsvp
 ---
+<h2>
+    RSVP
+</h2>
 
-RSVP Coming Soon!
+<p class="wedding-paragraph">
+    A brief paragraph explaining how to RSVP. Make sure to put when we need RSVPs by and when it will close.
+</p>
+<br />
+<h3>
+    Find your Invitation
+</h3>
+
+<div class="form-box">
+    <form class="rsvp-search">
+        <div class="form-input">
+            <label>First Name</label>
+            <input type="text" id="first_name" name="first_name" required>
+        </div>
+        <div class="form-input">
+            <label>Last Name</label>
+            <input type="text" id="last_name" name="last_name" required>
+        </div>
+        <button class="btn">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+        </button>
+    </form>
+</div>
+
+<br />
+<br />
+<br />
+
+
+<h3>
+    Find your Invitation
+</h3>
+<br />
+<p class="wedding-paragraph">
+    Your Invitation was not found. Please try again.
+</p>
+<br />
+<p class="wedding-paragraph" style="cursor: pointer; color:var(--accent-color-teal);" onclick="window.location = window.location">
+    Try again <i class="fa-solid fa-arrow-rotate-right"></i>
+</p>
+
+
+<br />
+<br />
+<br />
+
+
+<h3>
+    Fill out RSVP Information
+</h3>
+<div class="form-box">
+    <form class="rsvp-submit">
+        <div class="rsvp-guest-list">
+            <div>
+                <b>Guest Name</b><b>Attending ?</b>
+            </div>
+            <label>
+                John Smith
+                <input type="checkbox"/>
+            </label>
+            <label>
+                Jane Smith
+                <input type="checkbox" />
+            </label>
+        </div>
+
+        <div class="contact-info">
+            <div class="form-input">
+                <label>Phone or Email</label>
+                <input type="text" id="contact_info" name="contact_info" required>
+            </div>
+            <button class="btn">
+                Submit <i class="fa-solid fa-check"></i>
+            </button>
+        </div>
+    </form>
+</div>
+
+
+<br />
+<br />
+<br />
 
 <span id="rsvp_name"></span>
 

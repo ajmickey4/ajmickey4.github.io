@@ -4,4 +4,42 @@ title: Wedding Q&A
 permalink: /wedding/q&a
 ---
 
-Wedding Q&A Coming Soon!
+<h2>
+    FAQ&#x2019;s
+</h2>
+
+<div class="qa-container">
+    <div class="qa-box">
+        <b>Will the wedding be indoors or outdoors?</b>
+
+        The short ceremony will be held outdoors follwed by an entirely indoor reception.
+    </div>
+    <div class="qa-box">
+        <b>Will the wedding be indoors or outdoors?</b>
+
+        The short ceremony will be held outdoors follwed by an entirely indoor reception.
+    </div>
+    <div class="qa-box">
+        <b>Will the wedding be indoors or outdoors?</b>
+
+        The short ceremony will be held outdoors follwed by an entirely indoor reception.
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    $(entry.target).addClass('in-view');
+                } else {
+                    $(entry.target).removeClass('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        $('.qa-box').each(function() {
+            observer.observe(this);
+        });
+    });
+</script>
