@@ -163,9 +163,11 @@ body {
         position: relative;
     }
 
-        .cover-image img {
-            width: 100%;
-        }
+    .cover-image img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
 
 .web-footer {
     display: flex;
@@ -553,6 +555,7 @@ h3 {
     border-radius: 12px;
     border: 2px solid #c9c9c9;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .rsvp-search {
@@ -596,7 +599,7 @@ input {
 
     input[type="checkbox"] {
         height: 18px;
-        accent-color: #1fa900;
+        accent-color: #4f993f;
     }
 
 .rsvp-guest-list {
@@ -625,6 +628,10 @@ input {
     align-items: end;
 }
 
+.mobile-menu {
+    display:none;
+}
+
 @keyframes slide-in-left {
     from {
         opacity: 0;
@@ -650,11 +657,141 @@ input {
 }
 
     @media (max-width: 700px) {
+        :root {
+            --header-height: 73px;
+        }
+
         .web-header > div {
             margin-bottom: 0px;
         }
 
+        .desktop-menu {
+            display: none !important;
+        }
 
+
+        .mobile-menu {
+            display: flex !important;
+            background: black;
+            color: #fff;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 25px;
+            font-size: 20px;
+        }
+
+        .mobile-menu.wedding-home {
+            background: transparent;
+        }
+
+        .mobile-menu .nav-links {
+            text-align: right;
+        }
+
+            .mobile-menu .nav-links nav {
+                display: none !important;
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 15px;
+                align-items: flex-end;
+            }
+
+            .mobile-menu .nav-links:hover nav {
+                display: flex !important;
+            }
+
+            .mobile-menu .indicator-bar {
+                font-size: 16px;
+                padding: 3px 0px;
+                width: fit-content;
+                font-weight: normal;
+            }
+
+        .home-header-background:has(+ .mobile-menu .nav-links:hover) {
+            opacity: 1 !important;
+            /*background: var(--black);*/
+            height: 268px;
+        }
+
+        .cover-image img {
+            height: 50vh;
+        }
+
+        .hero h1 {
+            font-size: 18pt;
+        }
+
+        .hero p {
+            font-size: 10pt;
+            width: 60vw;
+            text-align: center;
+            line-height: 1lh;
+        }
+
+        .home-grid {
+            grid-template-columns: 1fr;
+            margin-top: 25px;
+        }
+
+        .timeline .event i {
+            font-size: 43px;
+            margin: 10px 22px 10px 10px;
+        }
+        .timeline .event:nth-child(2n+1) i {
+            margin: 10px 10px 10px 22px;
+        }
+        .timeline .event::after {
+            width: 12px;
+        }
+        .web-footer {
+            margin: 0 22px;
+        }
+
+        body, .page-body, .web-body {
+            overflow-x: hidden;
+        }
+
+        .web-header {
+            width: 100vW;
+        }
+
+        .page-body h2 {
+            margin-top: 30px;
+            margin-bottom: 25px;
+        }
+
+            .qa-container {
+                width: calc(100% - 45px);
+                max-width: 330px;
+                display: flex;
+                flex-direction: column;
+            }
+
+        .rsvp-search {
+            margin: 0px 0px;
+            display: flex;
+            gap: 12px;
+            align-items: revert;
+            flex-direction: column;
+        }
+
+        .form-input {
+            margin-top: 12px;
+        }
+        .rsvp-search .btn, .rsvp-submit .btn {
+            font-size: 12pt;
+        }
+
+        .rsvp-submit .contact-info {
+            display: flex;
+            gap: 12px;
+            align-items: revert;
+            flex-direction: column;
+        }
+
+        .wedding-paragraph {
+            margin-top: 25px !important;
+        }
 
         @media (max-height: 850px) {
             :root {
@@ -666,4 +803,4 @@ input {
                 margin-top: 10px;
             }
         }
-    }
+        }

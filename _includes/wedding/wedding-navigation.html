@@ -1,5 +1,5 @@
 {% assign url = page.url | split: "/" %}
-<nav {% if url[2] == nil %} class="wedding-home" {% endif %}>
+<nav class="desktop-menu {% if url[2] == nil %} wedding-home {% endif %}">
     {% for item in site.data.wedding-navigation %}
     <div class="indicator-bar">
         {% assign sub = item.link | remove: "/wedding/" %}
@@ -12,3 +12,31 @@
 {% if url[2] == nil %} 
 <div class="home-header-background"></div> 
 {% endif %}
+
+
+<div class="mobile-menu {% if url[2] == nil %} wedding-home {% endif %}">
+
+    <div class="page-name">
+        {% for item in site.data.wedding-navigation %}
+            {% assign sub = item.link | remove: "/wedding/" %}
+            {% assign sub = sub | remove: "/" %}
+                {% if url[2]==sub %} {{item.name}} 
+                {% elsif url[2] == nil and sub=="" %} Home
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="nav-links">
+        <i class="fa-solid fa-bars"></i>
+        <nav>
+            {% for item in site.data.wedding-navigation %}
+            <div class="indicator-bar">
+                {% assign sub = item.link | remove: "/wedding/" %}
+                {% assign sub = sub | remove: "/" %}
+                <a href="{{ item.link }}">{{ item.name }}</a>
+                <div {% if url[2]==sub %}class="current" {% endif %}{% if url[2] == nil and sub=="" %} class="current" {% endif %}></div>
+            </div>
+            {% endfor %}
+        </nav>
+    </div>    
+</div>

@@ -548,3 +548,60 @@ a {
         }
     }
 }
+
+
+.hero-btn {
+    position: relative;
+    color: #fff;
+    border: 2px solid #ffffff00;
+    padding: 13px 25px;
+    border-radius: 6px;
+    transition: all 0.5s ease;
+    background-color: #00000000;
+    cursor: pointer;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    background-image: url('/assets/images/wedding/cover.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: inherit;
+    color: #fff !important;
+}
+
+    .hero-btn::after {
+        content: "";
+        z-index: -1;
+        transition: all 0.5s ease;
+        opacity: 0;
+        background-color: var(--accent-color);
+        height: 2px;
+        position: absolute;
+        width: 80%;
+        left: 50%;
+        bottom: -2px;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+
+    a.hero-btn:hover {
+        color: #fff !important;
+        background-color: #ffffff1a;
+        transform: translateY(-3px);
+    }
+
+        .hero-btn:hover::after {
+            opacity: 1;
+            bottom: -8px;
+        }
+
+
+    .hero-btn img {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        object-fit: none;
+        border-radius: 0;
+        z-index: -1;
+    }

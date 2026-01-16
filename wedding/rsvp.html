@@ -11,228 +11,62 @@ permalink: /wedding/rsvp
     A brief paragraph explaining how to RSVP. Make sure to put when we need RSVPs by and when it will close.
 </p>
 <br />
-<h3>
-    Find your Invitation
-</h3>
 
-<div class="form-box">
-    <form class="rsvp-search">
-        <div class="form-input">
-            <label>First Name</label>
-            <input type="text" id="first_name" name="first_name" required>
-        </div>
-        <div class="form-input">
-            <label>Last Name</label>
-            <input type="text" id="last_name" name="last_name" required>
-        </div>
-        <button class="btn">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-        </button>
-    </form>
-</div>
+<div id="status" style="text-align:center; margin-bottom: 1em; min-height: 1.5em; color: var(--accent-color-teal); font-weight: bold;"></div>
 
-<br />
-<br />
-<br />
+<div style=" max-width: 600px; width: 100%;">
+    <h3 id="form_title">
+        Find your Invitation
+    </h3>
 
-
-<h3>
-    Find your Invitation
-</h3>
-<br />
-<p class="wedding-paragraph">
-    Your Invitation was not found. Please try again.
-</p>
-<br />
-<p class="wedding-paragraph" style="cursor: pointer; color:var(--accent-color-teal);" onclick="window.location = window.location">
-    Try again <i class="fa-solid fa-arrow-rotate-right"></i>
-</p>
-
-
-<br />
-<br />
-<br />
-
-
-<h3>
-    Fill out RSVP Information
-</h3>
-<div class="form-box">
-    <form class="rsvp-submit">
-        <div class="rsvp-guest-list">
-            <div>
-                <b>Guest Name</b><b>Attending ?</b>
-            </div>
-            <label>
-                John Smith
-                <input type="checkbox"/>
-            </label>
-            <label>
-                Jane Smith
-                <input type="checkbox" />
-            </label>
-        </div>
-
-        <div class="contact-info">
+    <div class="form-box" id="rsvp_search_section">
+        <form class="rsvp-search" id="find_rsvp_form">
             <div class="form-input">
-                <label>Phone or Email</label>
-                <input type="text" id="contact_info" name="contact_info" required>
+                <label>First Name</label>
+                <input type="text" id="first_name" name="first_name" required>
             </div>
-            <button class="btn">
-                Submit <i class="fa-solid fa-check"></i>
+            <div class="form-input">
+                <label>Last Name</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+            <button class="btn" >
+                <i class="fa-solid fa-magnifying-glass"></i> Search
             </button>
+        </form>
+    </div>
+
+    <div id="rsvp_not_found_section" style="display:none;">
+        <p class="wedding-paragraph">
+            Your Invitation was not found. Please try again.
+        </p>
+        <br />
+        <p class="wedding-paragraph" style="cursor: pointer; color:var(--accent-color-teal);" onclick="window.location.reload()">
+            Try again <i class="fa-solid fa-arrow-rotate-right"></i>
+        </p>
+    </div>
+
+
+    <div id="rsvp_submit_section" style="display:none;">
+        <div class="form-box">
+            <form class="rsvp-submit">
+                <div class="rsvp-guest-list" id="rsvp_guest_list_container">
+                    <!-- Guests will be injected here -->
+                </div>
+
+                <div class="contact-info">
+                    <div class="form-input">
+                        <label>Phone or Email</label>
+                        <input type="text" id="contact_info" name="contact_info" required>
+                    </div>
+                    <button class="btn">
+                        Submit <i class="fa-solid fa-check"></i>
+                    </button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
 
-<br />
-<br />
-<br />
 
-<span id="rsvp_name"></span>
-
-<script>
-    $(document).ready(function () {
-        // get name from url param
-        const urlParams = new URLSearchParams(window.location.search);
-        let firstname = urlParams.get("firstname");
-        let lastname = urlParams.get("lastname");
-        console.log(firstname + " " + lastname);
-    });
-</script>
-
-
-<form id="lookup">
-    <input name="firstName" placeholder="First name" required>
-    <input name="lastName" placeholder="Last name" required>
-    <button>Find My RSVP</button>
-</form>
-
-<div id="party"></div>
-<p id="status"></p>
-
-
-<script>
-    // IMPORTANT: For this to work, the Google Apps Script must be deployed as follows:
-    // 1. Execute as: "Me" (your account)
-    // 2. Who has access: "Anyone" (anonymous access is required to bypass CORS login redirects)
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxudnuY7ZmEwuiFF_Y8ARjfrj3Vk0RxqJTbUtjiWLKKFrIw-7vlyfwJzTT_JSxIuizc/exec";
-
-    $(document).ready(function () {
-        const $partyDiv = $("#party");
-        const $status = $("#status");
-
-        $("#lookup").on("submit", async function (e) {
-            e.preventDefault();
-
-            const res = await fetch("https://script.google.com/macros/s/AKfycbxudnuY7ZmEwuiFF_Y8ARjfrj3Vk0RxqJTbUtjiWLKKFrIw-7vlyfwJzTT_JSxIuizc/exec", {
-                method: "POST"
-            });
-
-            // Create a plain object for the payload
-            // standard jQuery $.ajax sends data as application/x-www-form-urlencoded
-
-            /*
-            const formData = new FormData(this);
-            const data = {
-                action: "lookup",
-                origin: window.location.origin
-            };
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            console.log("Lookup payload:", data);
-
-            $.ajax({
-                url: SCRIPT_URL,
-                type: "POST",
-                data: data,
-                // Important for CORS with Google Apps Script:
-                // 1. Prevent jQuery from adding X-Requested-With header (avoids preflight OPTIONS request)
-                // 2. Do not use 'withCredentials' unless script actually requires auth (it shouldn't for 'Anyone' access)
-                headers: { "X-Requested-With": null },
-                xhrFields: { withCredentials: false },
-                success: function (json) {
-                    if (!json.found) {
-                        $status.text("We couldn't find that name.");
-                        return;
-                    }
-                    renderParty(json);
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error("Error:", textStatus, errorThrown);
-                    console.log("Response text:", jqXHR.responseText);
-
-                    // Specific help for the likely CORS issue
-                    if (jqXHR.status === 0 || jqXHR.status === 200) {
-                        $status.html("Unable to connect to the RSVP list.<br>Please ensure the Google Script is deployed with 'Who has access: Anyone'.");
-                    } else {
-                        $status.text("An error occurred. If this persists, please try refreshing the page.");
-                    }
-                }
-            });
-            */
-        });
-
-        function renderParty(data) {
-            $partyDiv.html(`
-      <form id="rsvp">
-        ${data.guests.map(g => `
-          <label>
-            <input type="checkbox" name="guest_${g.row}" checked>
-            ${g.first} ${g.last}
-          </label>
-        `).join("")}
-
-        <input name="contact" placeholder="Email or phone" required>
-        <button>Submit RSVP</button>
-      </form>
-    `);
-
-            $("#rsvp").on("submit", function (e) {
-                submitRSVP(e, data.partyId);
-            });
-        }
-
-        function submitRSVP(e, partyId) {
-            e.preventDefault();
-
-            const formData = new FormData(e.target);
-            const attendance = {};
-            const data = {
-                action: "submit",
-                partyId: partyId,
-                origin: window.location.origin
-            };
-
-            // Process guests and other fields
-            formData.forEach((value, key) => {
-                if (key.startsWith("guest_")) {
-                    attendance[key.replace("guest_", "")] = true;
-                } else {
-                    data[key] = value;
-                }
-            });
-
-            data.attendance = JSON.stringify(attendance);
-
-            $.ajax({
-                url: SCRIPT_URL,
-                type: "POST",
-                data: data,
-                headers: { "X-Requested-With": null },
-                xhrFields: { withCredentials: false },
-                success: function () {
-                    $status.text("RSVP saved. Thank you!");
-                    $partyDiv.empty();
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error("Error:", textStatus, errorThrown);
-                    $status.text("There was a problem saving your RSVP. Please try again.");
-                }
-            });
-        }
-    });
-</script>
+<script src="/assets/js/wedding-rsvp.js"></script>
