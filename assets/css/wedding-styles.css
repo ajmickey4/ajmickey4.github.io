@@ -26,10 +26,12 @@ body {
     -moz-box-sizing: inherit;
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
+    max-width: 100vw;
 }
 
 .web-header {
     width: 100%;
+    max-width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
@@ -137,6 +139,8 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    max-width: 100vw;
+    overflow-x:hidden;
 }
 
 .page-body {
@@ -147,6 +151,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 50px;
+    max-width: 100vw;
 }
 
 
@@ -709,7 +714,7 @@ input {
 
         .home-header-background:has(+ .mobile-menu .nav-links:hover) {
             opacity: 1 !important;
-            /*background: var(--black);*/
+            background: var(--black);
             height: 268px;
         }
 
@@ -745,10 +750,6 @@ input {
         }
         .web-footer {
             margin: 0 22px;
-        }
-
-        body, .page-body, .web-body {
-            overflow-x: hidden;
         }
 
         .web-header {
