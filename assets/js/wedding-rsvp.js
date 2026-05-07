@@ -1,16 +1,36 @@
-
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby14RYFSfEMq6PLbRCpoMKBwYNpMNoMTTK2pnolxrNhXOEovG44y5XVuX9V1X54PoYM/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwEpO4woZ_EG8O0rYCt5eipk9dXK-jaPBf1_Y4vi0ZL_vvRvR-TqYiASWFNWkrCM84g/exec";
+const RSVP_CUTOFF = new Date(2026, 11, 18, 23, 59, 59); // December 18, 2026 at 11:59:59 PM
 
 $(document).ready(function () {
     const $formTitle = $("#form_title");
     const $searchSection = $("#rsvp_search_section");
     const $notFoundSection = $("#rsvp_not_found_section");
     const $submitSection = $("#rsvp_submit_section");
+    const $closedSection = $("#rsvp_closed_section");
     const $guestListContainer = $("#rsvp_guest_list_container");
+    const $dueMessage = $("#rsvp_due_message");
     const $status = $("#status");
 
     let currentPartyId = null;
 
+    function isRsvpOpen() {
+        return new Date() < RSVP_CUTOFF;
+    }
+
+    function showClosedState() {
+        $searchSection.hide();
+        $notFoundSection.hide();
+        $submitSection.hide();
+        $formTitle.text("");
+        $status.text("");
+        $dueMessage.hide();
+        $closedSection.fadeIn();
+    }
+
+    if (!isRsvpOpen()) {
+        showClosedState();
+        return;
+    }
 
     $(document).ready(function () {
         // get name from url param
@@ -43,6 +63,11 @@ $(document).ready(function () {
         })
             .then(response => response.json())
             .then(response => {
+                if (response.closed) {
+                    showClosedState();
+                    return;
+                }
+
                 if (response.error) {
                     $status.text("Error: " + response.error);
                     return;
@@ -51,6 +76,9 @@ $(document).ready(function () {
                 if (response.found) {
                     currentPartyId = response.partyId;
                     renderParty(response.guests);
+                    if (response.contact) {
+                        $("#contact_info").val(response.contact);
+                    }
                     $searchSection.hide();
                     $formTitle.text("Fill out RSVP Information");
                     $status.text("");
@@ -114,8 +142,14 @@ $(document).ready(function () {
         })
             .then(response => response.json())
             .then(response => {
+                if (response.closed) {
+                    showClosedState();
+                    return;
+                }
+
                 if (response.success) {
                     $status.html("RSVP saved! Thank you! <i class='fa-solid fa-heart'></i>");
+                    $dueMessage.text("If you need to update your RSVP, please due so before December 18, 2026.").show();
                     $submitSection.hide();
                     $formTitle.hide();
                 } else {
