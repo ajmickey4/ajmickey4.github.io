@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwEpO4woZ_EG8O0rYCt5eipk9dXK-jaPBf1_Y4vi0ZL_vvRvR-TqYiASWFNWkrCM84g/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz44af5cpG0zzmjfMN1JSuxF514kblo-LkXCzuNuBfX-oxefbrAax2Vuj7-Zg_qYLMY/exec";
 const RSVP_CUTOFF = new Date(2026, 11, 18, 23, 59, 59); // December 18, 2026 at 11:59:59 PM
 
 $(document).ready(function () {
@@ -9,6 +9,8 @@ $(document).ready(function () {
     const $closedSection = $("#rsvp_closed_section");
     const $guestListContainer = $("#rsvp_guest_list_container");
     const $dueMessage = $("#rsvp_due_message");
+    const $allergyInfoSection = $("#allergy_info_section");
+    const $allergyInfo = $("#allergy_info");
     const $status = $("#status");
 
     let currentPartyId = null;
@@ -24,7 +26,21 @@ $(document).ready(function () {
         $formTitle.text("");
         $status.text("");
         $dueMessage.hide();
+        $allergyInfoSection.hide();
         $closedSection.fadeIn();
+    }
+
+    function updateAllergySectionVisibility() {
+        const hasAttendingGuest = $guestListContainer.find("input[type='checkbox']:checked").length > 0;
+
+        if (hasAttendingGuest) {
+            $allergyInfoSection.fadeIn();
+            $allergyInfo.prop("required", false);
+        } else {
+            $allergyInfoSection.hide();
+            $allergyInfo.val("");
+            $allergyInfo.prop("required", false);
+        }
     }
 
     if (!isRsvpOpen()) {
@@ -79,6 +95,10 @@ $(document).ready(function () {
                     if (response.contact) {
                         $("#contact_info").val(response.contact);
                     }
+                    if (response.allergyInfo) {
+                        $allergyInfo.val(response.allergyInfo);
+                    }
+                    updateAllergySectionVisibility();
                     $searchSection.hide();
                     $formTitle.text("Fill out RSVP Information");
                     $status.text("");
@@ -114,11 +134,15 @@ $(document).ready(function () {
                 `;
             $guestListContainer.append(html);
         });
+
+            $guestListContainer.find("input[type='checkbox']").on("change", updateAllergySectionVisibility);
     }
 
     $(".rsvp-submit").on("submit", function (e) {
         e.preventDefault();
         $status.html("Sending RSVP... <i class='fa-solid fa-spinner fa-spin'></i>");
+        $submitSection.hide();
+        $formTitle.hide();
 
         const attendance = {};
         // Gather checkboxes
@@ -133,8 +157,10 @@ $(document).ready(function () {
         params.append("action", "submit");
         params.append("partyId", currentPartyId);
         params.append("contact", $("#contact_info").val());
+        params.append("allergyInfo", $allergyInfo.val());
         params.append("attendance", JSON.stringify(attendance));
         params.append("origin", window.location.origin);
+        
 
         fetch(SCRIPT_URL, {
             method: "POST",
@@ -150,8 +176,6 @@ $(document).ready(function () {
                 if (response.success) {
                     $status.html("RSVP saved! Thank you! <i class='fa-solid fa-heart'></i>");
                     $dueMessage.text("If you need to update your RSVP, please due so before December 18, 2026.").show();
-                    $submitSection.hide();
-                    $formTitle.hide();
                 } else {
                     console.log(response);
                     $status.text("There was a problem saving your RSVP.");

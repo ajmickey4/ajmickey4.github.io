@@ -82,9 +82,6 @@ $(document).ready(function () {
                     return;
                 }
                 rowHeights[colIndex] += img.height;
-                console.log(img.height);
-
-                console.log('Row heights after adding image ' + i, rowHeights); 
 
                 // Append the image to that column using already rendered image to avoid re-rendering
                 const $img = $(img).addClass("gallery-photo");
