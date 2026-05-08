@@ -14,12 +14,12 @@ $(document).ready(function () {
         $cactus.css("right", "");
         $cactus.css("left", rightPos + "px");
         
-        //randomize rotation +- 20 degrees (base is 43 degrees for left side)
-        const rotation = 43 + (Math.random() * 40 - 20);
+        //randomize rotation +- 15 degrees (base is 40 degrees for left side)
+        const rotation = 40 + (Math.random() * 30 - 15);
         $cactus.css("transform", "rotate(" + rotation + "deg)");
     } else {
-        //randomize rotation +- 20 degrees (base is 317 degrees for right side)
-        const rotation = 317 + (Math.random() * 40 - 20);
+        //randomize rotation +- 15 degrees (base is 320 degrees for right side)
+        const rotation = 320 + (Math.random() * 30 - 15);
         $cactus.css("transform", "rotate(" + rotation + "deg)");
     }
 
