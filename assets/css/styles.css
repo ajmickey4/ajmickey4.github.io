@@ -553,19 +553,19 @@ a {
 .hero-btn {
     position: relative;
     color: #fff;
-    border: 2px solid #ffffff00;
-    padding: 13px 25px;
+    padding: 15px 25px;
     border-radius: 6px;
     transition: all 0.5s ease;
     background-color: #00000000;
     cursor: pointer;
     -webkit-text-decoration: none;
     text-decoration: none;
-    background-image: url('/assets/images/wedding/cover.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: inherit;
+    background-image: url(/assets/images/wedding/wedding-button.png);
+    background-attachment: local;
+    background-position: bottom;
+    background-size: cover;
     color: #fff !important;
+    box-shadow: 5px 4px 50px 0px #d2790dbd;
 }
 
     .hero-btn::after {
@@ -587,6 +587,7 @@ a {
         color: #fff !important;
         background-color: #ffffff1a;
         transform: translateY(-3px);
+        background-position: top;
     }
 
         .hero-btn:hover::after {

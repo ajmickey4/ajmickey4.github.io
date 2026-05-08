@@ -21,7 +21,7 @@
     {% assign url = page.url | split: "/" %}
     {% if url[2] != nil %}
         <div class="header-spacer"></div>
-        <div>
+        <div class="web-page">
             <div class="web-body">
                 <div class="page-body">
                     {{ content }}
@@ -30,15 +30,19 @@
             <footer class="web-footer">
                 {% include wedding/wedding-footer.html %}
             </footer>
+            
+            <img src="/assets/images/wedding/cactus.png" class="cactus-img">
         </div>
     {% else %}
-        <div>
+        <div class="web-page">
             <div class="web-body">
                 {{ content }}
             </div>
             <footer class="web-footer">
                 {% include wedding/wedding-footer.html %}
             </footer>
+            
+            <img src="/assets/images/wedding/cactus.png" class="cactus-img">
         </div>
     {% endif %}
 </body>

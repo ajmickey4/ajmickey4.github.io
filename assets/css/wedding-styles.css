@@ -134,6 +134,21 @@ body {
         border-radius: 2px;
     }
 
+.web-page {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: clip;
+}
+
+.cactus-img {
+    position: absolute;
+    width: 784px;
+    right: -385px;
+    z-index: -10;
+    bottom: 28px;
+    transform: rotate(317deg)
+}
+
 
 .web-body {
     width: 100%;
@@ -728,6 +743,12 @@ input, textarea {
     }
 }
 
+    @media (max-width: 1000px) {
+        .web-footer {
+            margin-top: 132px;
+        }
+    }
+
     @media (max-width: 700px) {
         :root {
             --header-height: 73px;
@@ -847,8 +868,17 @@ input, textarea {
         .timeline .event::after {
             width: 12px;
         }
+
+        .cactus-img {
+            position: absolute;
+            width: 500px;
+            right: -250px;
+            bottom: 114px;
+        }
+
         .web-footer {
-            margin: 0 22px;
+            margin: 0 22px;            
+            margin-top: 100px;
         }
 
         .web-header {
