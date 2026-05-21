@@ -102,6 +102,7 @@ $(document).ready(function () {
                     $searchSection.hide();
                     $formTitle.text("Fill out RSVP Information");
                     $status.text("");
+                    $dueMessage.text("To RSVP YES to the wedding, please check the box under 'Attending?' next to your name. If you are not attending, no need to check the box! You can also provide contact information and allergy information (if applicable) before submitting.").show();
                     $submitSection.fadeIn();
                 } else {
                     $searchSection.hide();
@@ -142,6 +143,7 @@ $(document).ready(function () {
         e.preventDefault();
         $status.html("Sending RSVP... <i class='fa-solid fa-spinner fa-spin'></i>");
         $submitSection.hide();
+        $dueMessage.hide();
         $formTitle.hide();
 
         const attendance = {};

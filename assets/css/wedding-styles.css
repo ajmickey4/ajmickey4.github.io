@@ -363,6 +363,7 @@ a {
         width: 50%;
         margin-bottom: 80px;
         align-items: center;
+        min-height: 70px;
     }
 
         .timeline .event::after {
@@ -377,6 +378,10 @@ a {
             box-sizing: border-box;
         }
 
+        .timeline .event.hidden {
+            min-height: 0px;
+        }
+        
         .timeline .event.hidden::after {
             display: none;
         }
@@ -547,23 +552,30 @@ p.wedding-paragraph {
         color: var(--black);
         transition: all 0.5s ease;
     }
+
     .registry-links a i {
         font-size: 64px;
+        transition: all 0.5s ease;
     }
 
         .registry-links a:hover > div {
             transform: translateY(-8px) scale(1.03);
         }
 
-        .registry-links a:nth-child(3n+1):hover > div {
-            color: var(--accent-color-brown);
+        .registry-links a:hover i.custom-walmart {
+            color: #ffc220;
         }
+
+        .registry-links a:nth-child(3n+1):hover > div {
+            color: var(--accent-color-teal);
+        }
+
         .registry-links a:nth-child(3n+2):hover > div {
             color: var(--accent-color-green);
         }
 
         .registry-links a:nth-child(3n):hover > div {
-            color: var(--accent-color-teal);
+            color: var(--accent-color-brown);
         }
 
 
