@@ -1,5 +1,5 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz44af5cpG0zzmjfMN1JSuxF514kblo-LkXCzuNuBfX-oxefbrAax2Vuj7-Zg_qYLMY/exec";
-const RSVP_CUTOFF = new Date(2026, 11, 18, 23, 59, 59); // December 18, 2026 at 11:59:59 PM
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTukjpKWRKg-CAFhxurDMI_ozUF_SlVhZgH8ulDOhxKtFC173lTLv8Fs7pKsNt4q_o/exec";
+const RSVP_CUTOFF = new Date(2026, 9, 18, 23, 59, 59); // October 18, 2026 at 11:59:59 PM
 
 $(document).ready(function () {
     const $formTitle = $("#form_title");

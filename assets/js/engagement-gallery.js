@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const $galleryContainer = $("#engagement_photos");
     let rowHeights = [0, 0, 0];
-    const photoCount=76;
+    const photoCount=54;
     let renderMode = "desktop";
     let renderGeneration = 0;
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
             $galleryContainer.css("grid-template-columns", "1fr");
             // append all images in a single column for mobile
             for(let i=0; i < photoCount; i++) {
-                const $img = $(`<img src="https://github.com/ajmickey4/ajmickey4.github.io/releases/download/testGallery/af-mickey-engagement-${i}-s.jpg" class="gallery-photo" alt="Engagement Photo ${i}">`);
+                const $img = $(`<img src="https://github.com/ajmickey4/ajmickey4.github.io/releases/download/Engagement/af-mickey-engagement-${i}-s.jpg" class="gallery-photo" alt="Engagement Photo ${i}">`);
                 $galleryContainer.append($img);
                 setHoverAndClick($img, i);
             }
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
                 // Update the total height for that column getting the rendered height of the image
                 const img = new Image();
-                img.src = `https://github.com/ajmickey4/ajmickey4.github.io/releases/download/testGallery/af-mickey-engagement-${i}-s.jpg`;
+                img.src = `https://github.com/ajmickey4/ajmickey4.github.io/releases/download/Engagement/af-mickey-engagement-${i}-s.jpg`;
                 await img.decode(); // Wait for the image to load and decode to get accurate dimensions
                 if (activeGeneration !== renderGeneration) {
                     return;
@@ -98,10 +98,10 @@ $(document).ready(function () {
 function setHoverAndClick($img, index) {
     $img.hover(
         function() {
-            this.src = `https://github.com/ajmickey4/ajmickey4.github.io/releases/download/testGallery/af-mickey-engagement-${index}.jpg`;
+            this.src = `https://github.com/ajmickey4/ajmickey4.github.io/releases/download/Engagement/af-mickey-engagement-${index}.jpg`;
         },
         function() {
-            this.src = `https://github.com/ajmickey4/ajmickey4.github.io/releases/download/testGallery/af-mickey-engagement-${index}-s.jpg`;
+            this.src = `https://github.com/ajmickey4/ajmickey4.github.io/releases/download/Engagement/af-mickey-engagement-${index}-s.jpg`;
         }
     );
 
@@ -111,7 +111,7 @@ function setHoverAndClick($img, index) {
             <div class="image-overlay">
                 <div>
                     <span class="close-btn">&times;</span>
-                    <img src="https://github.com/ajmickey4/ajmickey4.github.io/releases/download/testGallery/af-mickey-engagement-${index}.jpg" alt="Engagement Photo ${index}">
+                    <img src="https://github.com/ajmickey4/ajmickey4.github.io/releases/download/Engagement/af-mickey-engagement-${index}.jpg" alt="Engagement Photo ${index}">
                 </div>
             </div>
         `);
