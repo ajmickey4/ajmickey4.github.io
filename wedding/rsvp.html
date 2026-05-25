@@ -1,0 +1,87 @@
+---
+layout: wedding-layout
+title: Wedding RSVP
+permalink: /wedding/rsvp
+---
+<h2>
+    RSVP
+</h2>
+
+<p class="wedding-paragraph" id="rsvp_due_message">
+    Please submit your RSVP before October 18, 2026.
+</p>
+<br />
+
+<div id="status" style="text-align:center; margin-bottom: 1em; min-height: 1.5em; color: var(--accent-color-teal); font-weight: bold;"></div>
+
+<div id="rsvp_closed_section" style="display:none; max-width: 600px; width: 100%;">
+    <div class="form-box" style="text-align:center;">
+        <h3>
+            RSVPs Closed
+        </h3>
+        <p class="wedding-paragraph">
+            RSVPs are no longer being accepted after October 18, 2026.
+        </p>
+    </div>
+</div>
+
+<div style=" max-width: 600px; width: 100%;">
+    <h3 id="form_title">
+        Find your Invitation
+    </h3>
+
+    <div class="form-box" id="rsvp_search_section">
+        <form class="rsvp-search" id="find_rsvp_form">
+            <div class="form-input">
+                <label>First Name</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+            <div class="form-input">
+                <label>Last Name</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+            <button class="btn" >
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+        </form>
+    </div>
+
+    <div id="rsvp_not_found_section" style="display:none;">
+        <p class="wedding-paragraph">
+            Your Invitation was not found. Please try again.
+        </p>
+        <br />
+        <p class="wedding-paragraph" style="cursor: pointer; color:var(--accent-color-teal);" onclick="window.location.reload()">
+            Try again <i class="fa-solid fa-arrow-rotate-right"></i>
+        </p>
+    </div>
+
+
+    <div id="rsvp_submit_section" style="display:none;">
+        <div class="form-box">
+            <form class="rsvp-submit">
+                <div class="rsvp-guest-list" id="rsvp_guest_list_container">
+                    <!-- Guests will be injected here -->
+                </div>
+
+                <div class="contact-info">
+                    <div class="form-input" id="allergy_info_section" style="display:none; grid-column: span 2;">
+                        <label>Allergy Information</label>
+                        <textarea id="allergy_info" name="allergy_info" rows="4" placeholder="Please share any food allergies or dietary restrictions."></textarea>
+                    </div>
+                    <div class="form-input">
+                        <label>Phone or Email</label>
+                        <input type="text" id="contact_info" name="contact_info" required>
+                    </div>
+                    <button class="btn">
+                        Submit <i class="fa-solid fa-check"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/js/wedding-rsvp.js"></script>

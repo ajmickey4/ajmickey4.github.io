@@ -1,0 +1,15 @@
+# ---
+#- name: About Me
+#  link: /
+# ---
+ 
+- name: Home
+  link: /wedding/  
+- name: Q&A
+  link: /wedding/q&a/
+- name: Registry
+  link: /wedding/registry/
+- name: RSVP
+  link: /wedding/rsvp/
+- name: Gallery
+  link: /wedding/gallery/
