@@ -177,7 +177,7 @@ $(document).ready(function () {
 
                 if (response.success) {
                     $status.html("RSVP saved! Thank you! <i class='fa-solid fa-heart'></i>");
-                    $dueMessage.text("If you need to update your RSVP, please due so before December 18, 2026.").show();
+                    $dueMessage.text("If you need to update your RSVP, please due so before October 18, 2026.").show();
                 } else {
                     console.log(response);
                     $status.text("There was a problem saving your RSVP.");
