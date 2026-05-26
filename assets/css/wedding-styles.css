@@ -232,6 +232,7 @@ a {
     align-items: baseline;
     height: fit-content;
     cursor: pointer;
+    justify-content: space-between;
 }
 
     .btn:hover {
