@@ -4,7 +4,7 @@
 # ---
  
 - name: Home
-  link: /wedding  
+  link: /wedding/  
 - name: Q&A
   link: /wedding/q&a
 - name: Registry
