@@ -4,12 +4,12 @@
 # ---
  
 - name: Home
-  link: /wedding/  
+  link: /wedding  
 - name: Q&A
-  link: /wedding/q&a/
+  link: /wedding/q&a
 - name: Registry
-  link: /wedding/registry/
+  link: /wedding/registry
 - name: RSVP
-  link: /wedding/rsvp/
+  link: /wedding/rsvp
 - name: Gallery
-  link: /wedding/gallery/
+  link: /wedding/gallery
